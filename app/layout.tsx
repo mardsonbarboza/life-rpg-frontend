@@ -5,8 +5,11 @@ import { Toaster } from "react-hot-toast";
 import { AuthProvider } from "../src/contexts/AuthContext";
 
 export const metadata: Metadata = {
-  title: "Life RPG - System",
-  description: "Transforme sua vida em um RPG",
+  title: "Life RPG - Transform Your Life",
+  description: "Transforme sua vida em um RPG épico com quests, conquistas e evolução constante",
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
@@ -16,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body>
+      <body className="antialiased">
         <AuthProvider>
           {children}
           <Toaster
@@ -24,11 +27,41 @@ export default function RootLayout({
             toastOptions={{
               duration: 4000,
               style: {
-                background: 'rgba(20, 20, 30, 0.95)',
+                background: 'rgba(10, 10, 20, 0.95)',
                 color: '#fff',
-                border: '2px solid #00aaff',
-                borderRadius: '12px',
-                backdropFilter: 'blur(20px)',
+                border: '2px solid rgba(0, 170, 255, 0.5)',
+                borderRadius: '16px',
+                backdropFilter: 'blur(30px)',
+                padding: '16px 20px',
+                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 170, 255, 0.15)',
+                fontWeight: '600',
+                fontSize: '14px',
+              },
+              success: {
+                iconTheme: {
+                  primary: '#00ff88',
+                  secondary: '#fff',
+                },
+                style: {
+                  border: '2px solid rgba(0, 255, 136, 0.5)',
+                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 255, 136, 0.2)',
+                },
+              },
+              error: {
+                iconTheme: {
+                  primary: '#ff3333',
+                  secondary: '#fff',
+                },
+                style: {
+                  border: '2px solid rgba(255, 51, 51, 0.5)',
+                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4), 0 0 40px rgba(255, 51, 51, 0.2)',
+                },
+              },
+              loading: {
+                iconTheme: {
+                  primary: '#00aaff',
+                  secondary: '#fff',
+                },
               },
             }}
           />
