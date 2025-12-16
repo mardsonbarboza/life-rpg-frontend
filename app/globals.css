@@ -12,17 +12,58 @@
 }
 
 :root {
-  --background: #0a0a0f;
-  --foreground: #ffffff;
-  --primary: #00d9ff;
+  /* Shadcn variables */
+  --background: 0 0% 4%; /* #0a0a0f */
+  --foreground: 0 0% 100%;
+  --card: 0 0% 8%;
+  --card-foreground: 0 0% 100%;
+  --popover: 0 0% 8%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 191 100% 50%; /* #00d9ff */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 340 100% 50%; /* #ff0055 */
+  --secondary-foreground: 0 0% 100%;
+  --muted: 0 0% 15%;
+  --muted-foreground: 0 0% 60%;
+  --accent: 158 100% 50%; /* #00ff88 */
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 0 0% 20%;
+  --input: 0 0% 20%;
+  --ring: 191 100% 50%;
+  --radius: 0.625rem;
+
+  /* Custom RPG variables (keeping existing) */
   --primary-dark: #0088cc;
-  --secondary: #ff0055;
   --gold: #ffd700;
   --success: #00ff88;
   --purple: #b200ff;
   --hp-color: #ff0055;
   --mp-color: #00d9ff;
   --xp-color: #ffd700;
+}
+
+.dark {
+  --background: 0 0% 4%;
+  --foreground: 0 0% 100%;
+  --card: 0 0% 8%;
+  --card-foreground: 0 0% 100%;
+  --popover: 0 0% 8%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 191 100% 50%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 340 100% 50%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 0 0% 15%;
+  --muted-foreground: 0 0% 60%;
+  --accent: 158 100% 50%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 0 0% 20%;
+  --input: 0 0% 20%;
+  --ring: 191 100% 50%;
 }
 
 * {
