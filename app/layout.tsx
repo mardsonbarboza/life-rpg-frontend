@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 
 import { Toaster } from "react-hot-toast";
 import { AuthProvider } from "../src/contexts/AuthContext";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Life RPG - System",
@@ -19,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={inter.className}>
+      <body>
         <AuthProvider>
           {children}
           <Toaster
