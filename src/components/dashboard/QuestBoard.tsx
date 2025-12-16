@@ -36,34 +36,46 @@ export default function QuestBoard() {
   });
 
   return (
-    <div className="space-y-6">
-      {/* Header */}
-      <div className="flex items-center justify-between">
-        <div>
-          <h2 className="text-3xl font-bold text-gradient">Quest Board</h2>
-          <p className="text-gray-400 text-sm mt-1">
-            {filteredQuests.length} quest{filteredQuests.length !== 1 ? 's' : ''} available
+    <div className="space-y-8">
+      {/* Header - MUITO maior e premium */}
+      <div className="glass-strong rounded-2xl p-8 flex items-center justify-between relative overflow-hidden corner-decoration">
+        {/* Shine effect */}
+        <div className="absolute inset-0 overflow-hidden rounded-2xl pointer-events-none">
+          <div className="absolute top-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-[#00ff88]/10 to-transparent animate-[shine_3s_infinite]" />
+        </div>
+
+        <div className="relative z-10">
+          <h2 className="text-4xl lg:text-5xl font-bold text-gradient mb-3 tracking-wide">📜 Quest Board</h2>
+          <p className="text-gray-300 text-base font-semibold">
+            <span className="text-[#00ff88] text-xl">{filteredQuests.length}</span> quest{filteredQuests.length !== 1 ? 's' : ''} available
           </p>
         </div>
+
         <button
           onClick={() => setShowCreateModal(true)}
-          className="px-4 py-2 bg-gradient-to-r from-[#00aaff] to-[#00ff88] text-white rounded-lg font-semibold flex items-center gap-2 hover:from-[#00ccff] hover:to-[#00ffaa] transition-all glow-primary"
+          className="relative px-8 py-4 bg-gradient-to-r from-[#00aaff] to-[#00ff88] text-white rounded-xl font-bold text-lg uppercase tracking-wider flex items-center gap-3 hover:from-[#00ccff] hover:to-[#00ffaa] transition-all glow-primary overflow-hidden group hover:scale-105 z-10"
         >
-          <PlusIcon className="w-5 h-5" />
-          New Quest
+          <span className="relative z-10 flex items-center gap-3">
+            <PlusIcon className="w-6 h-6" />
+            New Quest
+          </span>
+          <div className="absolute inset-0 bg-white/20 transform scale-0 group-hover:scale-100 transition-transform duration-500 rounded-xl" />
         </button>
+
+        {/* Decorative glow spots */}
+        <div className="absolute -top-2 -right-2 w-32 h-32 bg-[#00ff88]/20 rounded-full blur-3xl animate-pulse pointer-events-none" />
       </div>
 
-      {/* Filters */}
-      <div className="flex gap-2 flex-wrap">
+      {/* Filters - MUITO maiores */}
+      <div className="flex gap-4 flex-wrap">
         {['ALL', 'DAILY', 'ACTIVE', 'COMPLETED'].map((f) => (
           <button
             key={f}
             onClick={() => setFilter(f as any)}
-            className={`px-4 py-2 rounded-lg font-semibold text-sm transition-all ${
+            className={`px-8 py-4 rounded-xl font-bold text-base uppercase tracking-widest transition-all hover:scale-105 ${
               filter === f
-                ? 'bg-[#00aaff] text-white glow-primary'
-                : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                ? 'bg-gradient-to-r from-[#00aaff] to-[#00d9ff] text-white glow-primary border-2 border-[#00d9ff]'
+                : 'bg-gray-700/50 text-gray-300 hover:bg-gray-600 border-2 border-gray-600'
             }`}
           >
             {f}
@@ -73,21 +85,33 @@ export default function QuestBoard() {
 
       {/* Quests Grid */}
       {loading ? (
-        <div className="flex items-center justify-center py-20">
-          <div className="w-12 h-12 border-4 border-[#00aaff] border-t-transparent rounded-full animate-spin" />
+        <div className="flex flex-col items-center justify-center py-32">
+          <div className="w-20 h-20 border-6 border-[#00aaff] border-t-transparent rounded-full animate-spin mb-6" />
+          <p className="text-gray-400 text-lg font-semibold uppercase tracking-wider animate-pulse">Loading Quests...</p>
         </div>
       ) : filteredQuests.length === 0 ? (
-        <div className="glass rounded-xl p-12 text-center">
-          <p className="text-gray-400 text-lg mb-4">No quests found</p>
+        <div className="glass-strong rounded-2xl p-16 text-center relative overflow-hidden corner-decoration">
+          {/* Shine effect */}
+          <div className="absolute inset-0 overflow-hidden rounded-2xl pointer-events-none">
+            <div className="absolute top-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-[#00d9ff]/10 to-transparent animate-[shine_3s_infinite]" />
+          </div>
+
+          <div className="text-7xl mb-6 animate-float">📭</div>
+          <p className="text-gray-300 text-2xl font-bold mb-3 relative z-10">No quests found</p>
+          <p className="text-gray-400 text-base mb-8 relative z-10">Start your adventure by creating your first quest!</p>
           <button
             onClick={() => setShowCreateModal(true)}
-            className="px-6 py-3 bg-gradient-to-r from-[#00aaff] to-[#00ff88] text-white rounded-lg font-semibold hover:from-[#00ccff] hover:to-[#00ffaa] transition-all"
+            className="relative px-10 py-5 bg-gradient-to-r from-[#00aaff] to-[#00ff88] text-white rounded-xl font-bold text-lg uppercase tracking-wider hover:from-[#00ccff] hover:to-[#00ffaa] transition-all overflow-hidden group hover:scale-105 inline-flex items-center gap-3 z-10"
           >
-            Create your first quest
+            <span className="relative z-10 flex items-center gap-3">
+              <PlusIcon className="w-6 h-6" />
+              Create your first quest
+            </span>
+            <div className="absolute inset-0 bg-white/20 transform scale-0 group-hover:scale-100 transition-transform duration-500 rounded-xl" />
           </button>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
           {filteredQuests.map((quest) => (
             <QuestCard key={quest.id} quest={quest} onUpdate={fetchQuests} />
           ))}
